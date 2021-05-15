@@ -1,4 +1,4 @@
-Repository Title: NoteTaker                    ![alt text](images/MIT.svg)
+Repository Title: NoteTaker                        ![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)
 
 Description
     - undefined 
