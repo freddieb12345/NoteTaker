@@ -96,3 +96,36 @@ const handleRenderSaveBtn = function () {
     $saveNoteBtn.show();
   }
 };
+
+//Populates the list of note titles
+const renderNoteList = (notes) => {
+  $noteList.empty();
+
+  const noteListItems = [];
+
+//Creating jquery object of a list with the text of the note present and the delete button unless specified otherwise using the withDeleteButton argument
+const create$li = (text, withDeleteButton = true) => {
+  const $li = $("<li class='list-group-item'>");
+  const $span = $("<span>").text(text);
+  $li.append($span);
+
+  if (withDeleteButton) { //if withDeleteButton is true, display the delete button 
+    const $delBtn = $(
+      "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
+    );
+    $li.append($delBtn);
+  }
+  return $li;
+};
+
+if (notes.length === 0) { //If therea are no notes saved, then display "No saved notes" along with "false" as to not show a delete button
+  noteListItems.push(create$li("No saved Notes", false));
+}
+
+notes.forEach((note) => { //for each note, create a list element containing the notes data and then push it to the NoteListItems array
+  const $li = create$li(note.title).data(note);
+  noteListItems.push($li);
+});
+
+$noteList.append(noteListItems);
+};
