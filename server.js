@@ -15,4 +15,4 @@ require('./Routes/apiRoutes')(app);
 require('./Routes/htmlRoutes')(app);
 
 //Setting up server on the port
-app.listen(PORT, () => console.log(`Listening on PORT; ${port}`))
+app.listen(PORT, () => console.log(`Listening on PORT; ${PORT}`))
