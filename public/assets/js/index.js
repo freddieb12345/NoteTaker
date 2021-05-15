@@ -78,6 +78,21 @@ const handleNoteDelete = function(e) {
 
 //Setting and displaying the active note
 const handleNoteView = function () {
+  activeNote = $(this).data();
+  renderActiveNote();
+};
+
+//Function allowing user to create new note
+const handleNewNoteView = function () {
   activeNote = {};
   renderActiveNote();
+}
+
+//Hiding the save button if there is no content in the title and text inputs
+const handleRenderSaveBtn = function () {
+  if (!$noteTitle.val().trim() || !$noteText.val().trim()) {
+    $saveNoteBtn.hide();
+  } else {
+    $saveNoteBtn.show();
+  }
 };
