@@ -129,3 +129,17 @@ notes.forEach((note) => { //for each note, create a list element containing the 
 
 $noteList.append(noteListItems);
 };
+
+//Rendering the notes from the database onto the html page
+const getAndRenderNotes = () => {
+  return getNotes().then(renderNoteList);
+};
+
+$saveNoteBtn.on("click", handleNoteSave);
+$noteList.on("click", ".list-group-item", handleNoteView);
+$newNoteBtn.on("click", handleNewNoteView);
+$noteList.on("click", ".delete-note", handleNoteDelete);
+$noteTitle.on("keyup", handleRenderSaveBtn);
+$noteText.on("keyup", handleRenderSaveBtn);
+
+getAndRenderNotes();
