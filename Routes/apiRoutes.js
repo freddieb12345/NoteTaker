@@ -25,8 +25,8 @@ module.exports = function(app) {
     });
     //DELETE request
 
-    app.delete("/api/notes/:id", (request,res) => {
-        let noteId = request.params.id.toString(); //This gets the id of the note to be deleted
+    app.delete("/api/notes/:id", (req,res) => {
+        let noteId = req.params.id.toString(); //This gets the id of the note to be deleted
         console.log(`\nDELETE note request for note id: ${noteId}`);
         let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
         const newData = data.filter(note => note.id.toString() !== noteId); //Creates a new dataset filtering out the nodeId that is to be deleted
