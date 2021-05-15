@@ -13,4 +13,5 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-
+//Setting up server on the port
+app.listen(PORT, () => console.log(`Listening on PORT; ${port}`))
